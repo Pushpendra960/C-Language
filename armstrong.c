@@ -1,18 +1,19 @@
 #include <stdio.h>
-intmain()
-    {
-        int armstrong(int n)
-        int temp = n;
-        int len;
-        for(len = 0; temp; len++, temp /=10);
+#include <conio.h>
 
-        temp = n;
-        int result = 0, pow = 1;
-        while(temp) {
-            int lastDigit = temp % 10;
-            temp /=10;
-            for(int x = 1; x <= len; x++)
-                pow = pow * lastDigit;
-            
+int main() {
+    int number, temp, sum, remainder;
+    printf("The Armstrong numbers between 1-1000 \n");
+    for(number = 1; number <= 1000; number++) {
+        sum = 0;
+        temp = number;
+        while(temp != 0) {
+            remainder = temp % 10;
+            sum = sum + (remainder * remainder * remainder);
+            temp = temp / 10;
         }
+        if(sum == number)
+            printf("%d \n", number);
     }
+    return 0;
+}
